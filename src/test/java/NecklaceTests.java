@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NecklaceTests {
@@ -25,12 +26,8 @@ public class NecklaceTests {
         emerald = new Emerald(10, 8, 0.7);
         lazurite = new Lazurite(3, 12, 0.9);
 
-        necklace = new Necklace();
-
-        necklace.addGemstone(agate);
-        necklace.addGemstone(diamond);
-        necklace.addGemstone(emerald);
-        necklace.addGemstone(lazurite);
+        Gemstone[] gemstones = new Gemstone[] {agate, diamond, emerald, lazurite};
+        necklace = new Necklace(gemstones);
     }
 
     @Test
@@ -45,11 +42,9 @@ public class NecklaceTests {
 
     @Test
     public void getGemstonesInTransparencyRangeTest() {
-        List<Gemstone> expected = new ArrayList<>();
-        expected.add(diamond);
-        expected.add(emerald);
+        Gemstone[] expected = new Gemstone[]{diamond, emerald};
 
-        List<Gemstone> actual = necklace.getGemstonesInTransparencyRange(0.4, 0.8);
-        assertEquals(expected, actual);
+        Gemstone[] actual = necklace.getGemstonesInTransparencyRange(0.4, 0.8);
+        assertArrayEquals(expected, actual);
     }
 }
