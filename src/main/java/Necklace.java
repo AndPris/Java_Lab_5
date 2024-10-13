@@ -1,10 +1,7 @@
 import gemstones.Gemstone;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * The <code>Necklace</code> class represents a collection of gemstones that can be added to form a necklace.
